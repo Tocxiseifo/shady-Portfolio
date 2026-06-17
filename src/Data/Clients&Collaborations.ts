@@ -15,63 +15,63 @@ export const clientsAndCollaborations: clientCollaboration[] = [
         id:0,
         name: "3li Boltx",
         image: client1,
-        subs: "100K",
+        subs: "1.97M",
         link: "https://www.youtube.com/@3liboltx"
     },
     {
         id:1,
         name: "Abdo2xd",
         image: client2,
-        subs: "100K",
+        subs: "6.63M",
         link: "https://www.youtube.com/@Abdo2xd/videos"
     },
     {
         id:2,
         name: "Amr Beshr - عمرو بشر",
         image: client3,
-        subs: "100K",
+        subs: "301K",
         link: "https://www.youtube.com/@amrbeshr/shorts"
     },
     {
         id:3,
         name: "LeOniDes - مروان ريحان",
         image: client4,
-        subs: "100K",
+        subs: "2.86M",
         link: "https://www.youtube.com/@marwanrehan/videos"
     },
     {
         id:4,
         name: "B3shr",
         image: client5,
-        subs: "100K",
+        subs: "1.68M",
         link: "https://www.youtube.com/@B3shr"
     },
     {
         id:5,
         name: "B3shrextraa",
         image: client6,
-        subs: "100K",
+        subs: "76.6K",
         link: "https://www.youtube.com/@B3shrextraa"
     },
     {
         id:6,
         name: "LiveBoltx",
         image: client7,
-        subs: "100K",
+        subs: "561K",
         link: "https://www.youtube.com/@LiveBoltx"
     },
     {
         id:7,
         name: "BoltxShorts",
         image: client8,
-        subs: "100K",
+        subs: "828K",
         link: "https://www.youtube.com/@BoltxShorts"
     },
     {
         id:8,
         name: "Sheshtawy - ششتا",
         image: client9,
-        subs: "100K",
+        subs: "45.3K",
         link: "https://www.youtube.com/@sheshtawyx/videos"
     },
     {
