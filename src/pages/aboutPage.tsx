@@ -33,10 +33,10 @@ export default function AboutPage() {
                     className="flex flex-col items-center justify-center gap-8 text-2xl font-black leading-tight sm:text-3xl lg:items-start lg:gap-12 lg:text-4xl"
                 >
                     <motion.span initial={{opacity:0 , y:-100}} animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.6}}>
-                        Let's grow your content Lead Editor & Team Manager specializing in high-retention YouTube storytelling. Strategy. Structure. Cinematic execution.
+                        With over 3 years of experience in video editing, I specialize in crafting compelling narratives through storytelling and dynamic gaming content
                     </motion.span>
                     <motion.span initial={{opacity:0 , y:-100}} animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 1.0}}>
-                        Built for Retention. Designed to Scale. Creative Director with 3+ years of editing experience.
+                        Over the years, I’ve collaborated with various creators and brands within the gaming ecosystem to bring their visions to life
                     </motion.span>
                     <a href="/#contact" className="cursor-pointer rounded-full bg-gray-300 px-5 py-3 text-xl text-black transition duration-300 hover:bg-gray-400 sm:text-2xl">Contact Me</a>
                 </motion.div>
