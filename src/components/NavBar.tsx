@@ -1,29 +1,131 @@
+import CloseIcon from "@mui/icons-material/Close"
+import MenuIcon from "@mui/icons-material/Menu"
+import { Drawer, IconButton } from "@mui/material"
 import { motion, useScroll } from "motion/react"
+import { useState } from "react"
 import { Link } from "react-router"
+import logo from "../assets/img/721402889_2046008006127556_3249889732184980421_n.jpg"
+
+const navLinks = [
+    { label: "Home", to: "/" },
+    { label: "About", to: "/about" },
+    { label: "Portfolio", to: "/portfolio" },
+    { label: "Clients", to: "/clients" },
+]
 
 export default function NavBar() {
-    const HoverStyle = "text-white  font-seif text-2xl cursor relative inline-block after:content-[''] after:absolute after:left-0 after:top-8 gap-15  after:w-full after:h-[3px] after:bg-white hover:text-white  after:scale-x-0 after:transition-transform after:duration-300  hover:after:scale-x-100 after:origin-left cursor-pointer max-lg:text-lg max-md:after:top-7 max-sm:text-sm"
-    const {scrollYProgress} = useScroll()
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+    const hoverStyle = "relative inline-block cursor-pointer text-lg font-black text-white transition after:absolute after:left-0 after:top-8 after:h-[3px] after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:text-white hover:after:scale-x-100 lg:text-2xl"
+    const { scrollYProgress } = useScroll()
+
     return(
-        <>
-            <motion.nav initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.3}} className="bg-black text-white  h-25 fixed top-0  z-50 flex flex-col items-center justify-center  w-full ">
-                <div className="w-full h-auto flex items-center justify-between px-8">
-                    <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} className='flex items-center justify-center h-auto w-50   '>
-                        <img src="/src/assets/img/721402889_2046008006127556_3249889732184980421_n.jpg" alt="Logo" className="h-10 w-10 rounded-full object-cover border  border-gray-300 relative top-1" />
-                        <span className='ml-2 text-white text-2xl  font-black'>shady nader</span>
-                    </motion.div>
-                    <ul  className="flex space-x-4 text-2xl h-auto justify-center font-black items-center relative right-15">
-                        <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} ><Link to={"/"} className={HoverStyle}>Home</Link></motion.span>
-                        <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.6}} ><Link to={"/about"} className={HoverStyle}>About</Link></motion.span>
-                        <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.8}} ><Link to={'/portfolio'} className={HoverStyle}>Portfolio</Link></motion.span>
-                        <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 1.0}} ><Link to={"/clients"} className={HoverStyle}>Clients</Link></motion.span>
-                    </ul>
-                    <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}   className='flex items-center justify-center h-auto w-auto'>
-                        <a href="#contact" className="bg-gray-300 text-black px-4 py-2 rounded-full hover:bg-gray-400 transition  duration-300">Contact Me</a>
-                    </motion.div>
+        <motion.nav
+            initial={{opacity:0 , y:-100}}
+            animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{duration:1 , ease:'easeOut' ,delay: 0.3}}
+            className="fixed top-0 z-50 flex h-20 w-full items-center justify-center bg-black text-white sm:h-24"
+        >
+            <div className="flex w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial={{opacity:0 , y:-100}}
+                    animate={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0 }}
+                    transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                    className="flex min-w-0 items-center"
+                >
+                    <Link to="/" className="flex min-w-0 items-center">
+                        <img src={logo} alt="Shady Nader logo" className="h-10 w-10 shrink-0 rounded-full border border-gray-300 object-cover" />
+                        <span className="ml-2 truncate text-lg font-black text-white sm:text-2xl">shady nader</span>
+                    </Link>
+                </motion.div>
+
+                <ul className="hidden items-center justify-center gap-6 font-black md:flex lg:gap-10 xl:gap-14">
+                    {navLinks.map((link, index) => (
+                        <motion.li
+                            initial={{opacity:0 , y:-100}}
+                            animate={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0 }}
+                            transition={{duration:1 , ease:'easeOut' ,delay: 0.4 + index * 0.2}}
+                            key={link.to}
+                        >
+                            <Link to={link.to} className={hoverStyle}>{link.label}</Link>
+                        </motion.li>
+                    ))}
+                </ul>
+
+                <motion.div
+                    initial={{opacity:0 , y:-100}}
+                    animate={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0 }}
+                    transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                    className="hidden items-center justify-center md:flex"
+                >
+                    <Link to="/#contact" className="rounded-full bg-gray-300 px-4 py-2 font-semibold text-black transition duration-300 hover:bg-gray-400">Contact Me</Link>
+                </motion.div>
+
+                <IconButton
+                    aria-label="Open navigation menu"
+                    onClick={() => setIsDrawerOpen(true)}
+                    className="md:!hidden"
+                    sx={{ color: "white" }}
+                >
+                    <MenuIcon fontSize="large" />
+                </IconButton>
+            </div>
+
+            <Drawer
+                anchor="right"
+                open={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+                ModalProps={{ keepMounted: true }}
+                sx={{
+                    "& .MuiDrawer-paper": {
+                        width: { xs: "min(82vw, 320px)", sm: 360 },
+                        backgroundColor: "#050505",
+                        color: "#fff",
+                        borderLeft: "1px solid rgba(255,255,255,0.14)",
+                    },
+                }}
+            >
+                <div className="flex h-full flex-col px-6 py-6">
+                    <div className="mb-10 flex items-center justify-between">
+                        <div className="flex min-w-0 items-center">
+                            <img src={logo} alt="Shady Nader logo" className="h-11 w-11 shrink-0 rounded-full border border-gray-300 object-cover" />
+                            <span className="ml-3 truncate text-xl font-black">shady nader</span>
+                        </div>
+                        <IconButton
+                            aria-label="Close navigation menu"
+                            onClick={() => setIsDrawerOpen(false)}
+                            sx={{ color: "white" }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+
+                    <nav className="flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.to}
+                                to={link.to}
+                                onClick={() => setIsDrawerOpen(false)}
+                                className="rounded-md px-2 py-3 text-2xl font-black text-white transition duration-300 hover:bg-white/10"
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                        <Link
+                            to="/#contact"
+                            onClick={() => setIsDrawerOpen(false)}
+                            className="mt-4 rounded-full bg-gray-200 px-5 py-3 text-center text-lg font-black text-black transition duration-300 hover:bg-gray-400"
+                        >
+                            Contact Me
+                        </Link>
+                    </nav>
                 </div>
-                <motion.span style={{ scaleX: scrollYProgress, originX: 0 }} className="border-2 w-full relative flex top-7 border-white"></motion.span>
-            </motion.nav>
-        </>
+            </Drawer>
+
+            <motion.span style={{ scaleX: scrollYProgress, originX: 0 }} className="absolute bottom-0 left-0 h-[3px] w-full bg-white"></motion.span>
+        </motion.nav>
     )
 }

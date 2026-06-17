@@ -5,17 +5,13 @@ import ScrollToTop from './components/ui/ScrollToTop'
 import AppRouter from './router/AppRouter'
 
 function App() {
-
   return (
-    <>
-
+    <div className="min-h-screen w-full overflow-x-hidden bg-black">
       <ScrollToTop />
-      <div className=" w-full h-screen" >
-        <NavBar />
-         <AppRouter />
-        <FooterSection />
-      </div>
-    </>
+      <NavBar />
+      <AppRouter />
+      <FooterSection />
+    </div>
   )
 }
 

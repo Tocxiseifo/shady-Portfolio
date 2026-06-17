@@ -3,19 +3,38 @@ import { clientsAndCollaborations } from "../Data/Clients&Collaborations"
 
 export default function ClientsPage() {
     return(
-        <>
-            <section className="bg-linear-to-b from-black/90 to-white/65 pb-10  text-gray-200  h-auto w-full flex flex-col  items-center font-black  justify-center gap-40">
-                <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} className="w-full h-auto text-8xl text-center flex justify-center items-center mt-30">Clients & Collaborations</motion.span>
-                <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} className="flex items-start flex-wrap justify-start w-full gap-5">
-                    {clientsAndCollaborations.map((client , index) => (
-                        <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay:index * 0.8 }} key={client.id} className='h-auto w-150 rounded-md  items-center pb-5 gap-3  flex flex-col '>
-                            <img src={client.image} alt={client.name} className='h-45 w-45 border-5 border-gray-200 rounded-full object-cover' />
-                            <span className='text-2xl font-black relative top-5'>{client.subs} Subs</span>
-                            <a href={client.link} target="_blank" className='text-2xl font-black relative underline top-5 hover:text-gray-400 duration-300 hover:duration-300 transition'>{client.name}</a>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </section>
-        </>
+        <section className="flex h-auto w-full flex-col items-center justify-center gap-14 bg-linear-to-b from-black/90 to-white/65 px-4 pb-20 pt-36 font-black text-gray-200 sm:px-6 sm:pt-40 lg:px-8 lg:gap-20">
+            <motion.span
+                initial={{opacity:0 , y:-100}}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                className="flex h-auto w-full max-w-5xl items-center justify-center text-center text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-8xl"
+            >
+                Clients & Collaborations
+            </motion.span>
+            <motion.div
+                initial={{opacity:0 , y:-100}}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                className="grid w-full max-w-7xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+            >
+                {clientsAndCollaborations.map((client , index) => (
+                    <motion.div
+                        initial={{opacity:0 , y:-100}}
+                        animate={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0 }}
+                        transition={{duration:1 , ease:'easeOut' ,delay:index * 0.8 }}
+                        key={client.id}
+                        className="flex h-auto min-w-0 flex-col items-center gap-3 rounded-md pb-5 text-center"
+                    >
+                        <img src={client.image} alt={client.name} className="h-36 w-36 rounded-full border-4 border-gray-200 object-cover sm:h-40 sm:w-40 lg:h-44 lg:w-44" />
+                        <span className="text-xl font-black sm:text-2xl">{client.subs} Subs</span>
+                        <a href={client.link} target="_blank" rel="noopener noreferrer" className="max-w-full break-words text-xl font-black underline transition duration-300 hover:text-gray-400 sm:text-2xl">{client.name}</a>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </section>
     )
 }

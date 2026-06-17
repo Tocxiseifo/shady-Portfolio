@@ -2,15 +2,20 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
-  // بنراقب تغيير الـ URL
-  const { pathname } = useLocation();
+  const { hash, pathname } = useLocation();
 
   useEffect(() => {
-    // أول ما الـ Path يتغير، اطلع لقمة الصفحة
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      requestAnimationFrame(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+      });
+      return;
+    }
 
-  return null; // المكون ده مش بيرندر حاجة، هو شغال في الخلفية بس
+    window.scrollTo(0, 0);
+  }, [hash, pathname]);
+
+  return null;
 };
 
 export default ScrollToTop;

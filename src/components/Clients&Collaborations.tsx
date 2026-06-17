@@ -4,20 +4,39 @@ import { Link } from "react-router"
 
 export default function ClientsCollaborations() {
     return(
-        <>
-            <section className="bg-black/90 pb-10  text-gray-200  h-auto w-full flex flex-col  items-center font-black  justify-center gap-40">
-                <motion.span initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} className="w-full h-auto text-8xl text-center flex justify-center items-center">Clients & Collaborations</motion.span>
-                <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay: 0.4}} className="flex items-start flex-wrap justify-start w-full gap-5">
-                    {clientsAndCollaborations.slice(0, 6).map((client , index) => (
-                        <motion.div initial={{opacity:0 , y:-100}}   animate={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{duration:1 , ease:'easeOut' ,delay:index * 0.8 }} key={client.id} className='h-auto w-150 rounded-md  items-center pb-5 gap-3  flex flex-col '>
-                            <img src={client.image} alt={client.name} className='h-45 w-45 border-5 border-gray-200 rounded-full object-cover' />
-                            <span className='text-2xl font-black relative top-5'>{client.subs} Subs</span>
-                            <a href={client.link} target="_blank" className='text-2xl font-black relative underline top-5 hover:text-gray-400 duration-300 hover:duration-300 transition'>{client.name}</a>
-                        </motion.div>
-                    ))}
-                </motion.div>
-                <Link to="/clients" className="text-white text-lg font-bold relative right-10  hover:bg-white/85 hover:duration-300 duration-300 transition-all cursor-pointer   w-30 h-12 text-center rounded-full  flex bg-white/65  items-center justify-center  ">See More</Link>
-            </section>
-        </>
+        <section className="flex h-auto w-full flex-col items-center justify-center gap-14 bg-black/90 px-4 py-20 font-black text-gray-200 sm:px-6 lg:px-8 lg:gap-20">
+            <motion.span
+                initial={{opacity:0 , y:-100}}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                className="flex h-auto w-full max-w-5xl items-center justify-center text-center text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-8xl"
+            >
+                Clients & Collaborations
+            </motion.span>
+            <motion.div
+                initial={{opacity:0 , y:-100}}
+                animate={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{duration:1 , ease:'easeOut' ,delay: 0.4}}
+                className="grid w-full max-w-7xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+            >
+                {clientsAndCollaborations.slice(0, 6).map((client , index) => (
+                    <motion.div
+                        initial={{opacity:0 , y:-100}}
+                        animate={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0 }}
+                        transition={{duration:1 , ease:'easeOut' ,delay:index * 0.8 }}
+                        key={client.id}
+                        className="flex h-auto min-w-0 flex-col items-center gap-3 rounded-md pb-5 text-center"
+                    >
+                        <img src={client.image} alt={client.name} className="h-36 w-36 rounded-full border-4 border-gray-200 object-cover sm:h-40 sm:w-40 lg:h-44 lg:w-44" />
+                        <span className="text-xl font-black sm:text-2xl">{client.subs} Subs</span>
+                        <a href={client.link} target="_blank" rel="noopener noreferrer" className="max-w-full break-words text-xl font-black underline transition duration-300 hover:text-gray-400 sm:text-2xl">{client.name}</a>
+                    </motion.div>
+                ))}
+            </motion.div>
+            <Link to="/clients" className="flex h-12 w-32 cursor-pointer items-center justify-center rounded-full bg-white/65 text-center text-lg font-bold text-white transition-all duration-300 hover:bg-white/85">See More</Link>
+        </section>
     )
 }
