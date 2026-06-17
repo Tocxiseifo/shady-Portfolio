@@ -5,7 +5,7 @@ export default function FormSection() {
                 <div className="flex max-w-2xl flex-col items-start justify-center gap-6">
                     <span className="text-4xl font-bold leading-tight text-white sm:text-5xl">Let's grow your content</span>
                     <span className="text-xl font-bold leading-relaxed text-gray-300 sm:text-2xl">If you're serious about performance-driven storytelling and scaling your channel, fill out the details below. I review every inquiry personally.</span>
-                    <a href="https://api.whatsapp.com/send?phone=20126407706" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-black underline transition duration-300 hover:text-gray-700 sm:text-3xl">+20126407706</a>
+                    <a href="https://api.whatsapp.com/send?phone=20126407706" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-black underline transition duration-300 hover:text-gray-700 sm:text-3xl">+201226407706</a>
                 </div>
 
                 <form onSubmit={(event) => event.preventDefault()} className="flex w-full flex-col items-start justify-center gap-4 rounded-md bg-black/60 p-5 text-start shadow-2xl shadow-black/20 sm:p-8">
