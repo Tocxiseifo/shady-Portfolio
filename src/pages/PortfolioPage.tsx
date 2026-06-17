@@ -1,5 +1,6 @@
 import { PortfolioData } from "../Data/PortfolioData";
-import imgs from '../assets/portfolio_img/720397740_1054240977267902_2376329844051476860_n.png'
+import imgs from '../../public/portfolio_img/720397740_1054240977267902_2376329844051476860_n.png'
+
 import { motion } from "motion/react"
 
 export default function PortfolioPage() {
